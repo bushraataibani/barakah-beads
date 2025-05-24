@@ -1,4 +1,5 @@
 import { Box, Modal, Typography, TextField, Button } from '@mui/material';
+import { useState } from 'react';
 
 const style = {
   position: 'absolute',
@@ -35,9 +36,15 @@ const inputStyle = {
   },
 };
 
-const ChangeTitleModal = ({ showModal, setShowModal, setTasbih, tasbih, setLapLimit, lapLimit }) => {
+const ChangeTitleModal = ({ showModal, setShowModal, setTasbih, setLapLimit, setCount, setRound, tasbih, lapLimit }) => {
+  const [dikhr, setDikhr] = useState(tasbih ? tasbih : '')
+  const [limit, setLimit] = useState(lapLimit ? lapLimit : '33');
+
   const handleSave = () => {
-    setTasbih(tasbih);
+    setTasbih(dikhr);
+    setLapLimit(limit);
+    setCount(0);
+    setRound(0);
     setShowModal(false);
   };
 
@@ -61,8 +68,8 @@ const ChangeTitleModal = ({ showModal, setShowModal, setTasbih, tasbih, setLapLi
         <TextField
           fullWidth
           margin="dense"
-          value={tasbih}
-          onChange={(e) => setTasbih(e.target.value)}
+          value={dikhr}
+          onChange={(e) => setDikhr(e.target.value)}
           label="Dikhr Title"
           variant="outlined"
           sx={inputStyle}
@@ -70,9 +77,9 @@ const ChangeTitleModal = ({ showModal, setShowModal, setTasbih, tasbih, setLapLi
         <TextField
           fullWidth
           margin="dense"
-          value={lapLimit}
-          onChange={(e) => setLapLimit(e.target.value)}
-          label="Lap Limit"
+          value={limit}
+          onChange={(e) => setLimit(e.target.value)}
+          label="Dhikr Limit"
           variant="outlined"
           type="number"
           sx={inputStyle}

@@ -14,13 +14,12 @@
   text-align: center;
   margin-bottom: 30px;
   font-size: clamp(2rem, 2vmin, 2rem);
+  cursor: pointer;
 }
 
 .counter-circle {
-  /* width: 30vmin; */
   aspect-ratio: 1 / 1;
   border: 1px solid #c2b280;
-  /* box-shadow: 0 0 20px rgba(255, 215, 0, 0.2); */
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -95,4 +94,23 @@
 
 .controls button:active {
   transform: scale(0.95);
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  z-index: 100;
+  box-shadow: 0 -2px 4px rgba(0,0,0,0.05);
+  color: gray;
+}
+
+.footer-name {
+  font-weight: 600;
+  color: #ffd700;
 }
